@@ -1,0 +1,37 @@
+{% load static %}
+
+{% block footer %}
+
+    <footer >
+        <span>@Flight_Studio 2021</span>
+    </footer>
+    
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/moment-with-locales.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+
+    <!-- Bootstrap Bundle JS (jsDelivr CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="{% static 'js/all.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript">
+    $(function () {
+      $('#datetimepicker1').datetimepicker({
+      locale: 'ru',
+    stepping:10,
+    format: 'DD.MM.YYYY',
+    defaultDate: moment('01.01.2021').format('DD.MM.YYYY'),
+    });
+      $('#datetimepicker2').datetimepicker({
+      locale: 'ru',
+    stepping:10,
+    format: 'DD.MM.YYYY',
+    defaultDate: moment('01.01.2021').format('DD.MM.YYYY'),
+    });
+    });
+    </script>
+</body>
+</html>
+{% endblock %}

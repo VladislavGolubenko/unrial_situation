@@ -1,0 +1,11 @@
+{% load static %}
+{% block header %}
+    <header>
+        <a href="{% url 'home'%}"><img class="logo" src="{% static 'img/logo.png'%}" alt=""></a>
+
+        <ul>
+            <li><a href="{% url 'home'%}">Главная страница</a></li>
+            <li><a href="{% url 'russia_map'%}">Туристические направления России</a></li>
+        </ul>
+    </header>
+{% endblock %}

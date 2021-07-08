@@ -1,0 +1,71 @@
+{% load static %}
+
+{% include "inc/_inc.html" %}
+
+    {% include "inc/_nav.html" %}
+
+    <main>
+        {% block by_tiket_information %}
+        <div class="by_tiket_informstion">
+            {% for flight in flights %}
+            <div class="box_header">
+                 <span>Данные о билете</span>
+            </div>
+            <div class="box_content">
+
+                <form class="information_form" method="post" action="{% url 'get_contact' id_flight %}">
+                {% csrf_token %}
+
+                    <div class="information_form_place">
+                        <h4>{{ flight.departure_airport.city}}({{ flight.departure_airport.airport_code }})</h4>
+                        <p>{{ flight.departure_time }}</p>
+                    </div>
+
+                    <div class="information_form_inputs">
+                         {{ form.none_field.errors }}
+
+                        <div>
+                            <label for="{{form.place_class.id_for_label}}">Класс</label>
+                            {{form.place_class}}
+                        </div>
+                        <div class="invalid-feedback">
+                            {{form.place_class.errors}}
+                        </div>
+
+                        <div>
+                            <label for="{{form.window_place.id_for_label}}">Место у окна</label>
+                            {{form.window_place}}
+                        </div>
+                        <div class="invalid-feedback">
+                            {{form.window_place.errors}}
+                        </div>
+
+                        <div>
+                            <label for="{{form.baggage.id_for_label}}">Наличие багажа</label>
+                            {{form.baggage}}
+                        </div>
+                        <div class="invalid-feedback">
+                            {{form.baggage.errors}}
+                        </div>
+                    </div>
+
+                    <div class="information_form_place">
+                        <h4>{{ flight.arrival_point_airport.city}}({{ flight.arrival_point_airport.airport_code }})</h4>
+                        <p>{{ flight.arrival_time }}</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Продолжить покупку</button>
+                </form>
+                <div class="box_content_plane">
+                    <img src="{% static 'img/plane.png'%}" alt="">
+                    <span>{{ flight.plane_id }}</span>
+
+                </div>
+            </div>
+
+            {% empty %}
+
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+{% include "inc/_footer.html" %}

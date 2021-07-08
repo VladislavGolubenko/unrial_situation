@@ -1,0 +1,52 @@
+{% load static %}
+{% block find_form %}
+
+    <form class="find_form" action="{% url 'view_tikets' %}" method="post">
+    {% csrf_token %}
+        <div class="input_line">
+            {{ form.none_field.errors }}
+
+
+            {{form.departure_place}}
+
+            <div class="invalid-feedback">
+                {{form.departure_place.errors}}
+            </div>
+
+            {{form.arrivial_place}}
+
+            <div class="invalid-feedback">
+                {{form.arrivial_place.errors}}
+            </div>
+
+            <div class="input-group date" id="datetimepicker1">
+                {{form.departure_date}}
+                <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon"></span>
+                </span>
+            </div>
+
+            <div class="invalid-feedback">
+                {{form.departure_date.errors}}
+            </div>
+
+            <div class="input-group date" id="datetimepicker2">
+                {{form.departure_date_back}}
+                <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon"></span>
+                </span>
+            </div>
+
+            <div class="invalid-feedback">
+                {{form.departure_date.errors}}
+            </div>
+        </div>
+        <div class="button_in_findform">
+            <button type="submit" class="btn btn-primary">Найти билеты</button>
+        </div>
+
+
+    </form>
+{% endblock %}
+
+

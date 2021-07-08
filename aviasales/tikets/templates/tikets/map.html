@@ -1,0 +1,96 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="{% static 'js/jquery-1.6.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.maphilight.js' %}"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+           $('.map').maphilight();
+        });
+    </script>
+</head>
+<body>
+    <header style="display: flex; flex-direction: row; align-items: center;">
+        <a href="{% url 'home'%}"><img class="logo" src="{% static 'img/logo.png'%}" alt=""></a>
+
+        <ul >
+            <li><a href="{% url 'home'%}">Главная страница</a></li>
+            <li><a href="{% url 'russia_map'%}">Туристические направления России</a></li>
+        </ul>
+    </header>
+    <main>
+
+        <div class="map_box">
+            <img src="{% static 'img/russia.jpg' %}"  class="map maphilighted" usemap="#simple">
+        </div>
+
+        <map name="simple">
+            <area data-toggle="modal" href="#nourd" shape="poly" coords="69,150,66,71,195,62,207,104,200,117"  data-maphilight="{&quot;strokeColor&quot;:&quot;ffffff&quot;,&quot;strokeWidth&quot;:1,&quot;fillColor&quot;:&quot;6AA8FE&quot;,&quot;fillOpacity&quot;:0.3}" >
+        </map>
+
+
+
+        <!-- The Modal -->
+        <div class="modal" id="nourd">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title"><strong>Русский Север</strong></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="map_card">
+
+                      <img class="map_remarkable" src="{% static 'img/kig.jpg'%}" alt="">
+
+
+                      <div class="map_remarkable_inf">
+                          <h4>КИЖСКИЙ ПОГОСТ, КИЖИ</h4>
+                          <p>Кижский погост — один из главных архитектурных «брендов» России, неизменно попадающий во всевозможные рейтинги и «топы» чудес и богатств нашей необъятной Родины.</p>
+                      </div>
+                  </div>
+
+                  <div class="map_card">
+                      <img class="map_remarkable" src="{% static 'img/novg.jpg'%}" alt="">
+                      <div class="map_remarkable_inf">
+                          <h4>НОВГОРОДСКИЙ ДЕТИНЕЦ, ВЕЛИКИЙ НОВГОРОД</h4>
+                          <p>Одна из самых старых каменных построек на территории Руси и старейший российский кремль, Новгородский детинец прекрасно сохранился, и история здесь сквозит из каждой трещинки. Общая протяженность нынешних стен составляет примерно полтора километра. До наших дней сохранилось 9 башен, в том числе и самая высокая — Кокуй. На территории крепости расположено около десятка различных памятников архитектуры, и первым номером идет, конечно, Софийский собор, возле которого горожане собирались на вече. Также в Новгородском кремле находится знаменитый памятник «Тысячелетие России», Софийская звонница, мемориал «Вечный огонь славы», Грановитая палата и многое другое.</p>
+                      </div>
+                  </div>
+
+              </div>
+
+                <div class="modal-footer">
+                    <a href="{% url 'view_tikets' %}?region=Север" class="btn btn-info btn-lg" role="button">Искать билеты в этом направлении</a>
+                </div>
+
+            </div>
+          </div>
+        </div>
+    </main>
+
+    <footer style="background-color: rgb(72, 72, 255); height: 100px; color: rgb(182, 216, 243); font-size: 19px; display: flex; justify-content: center; align-items: center;">
+      <span>Flight studio, все права соблюдены@ 2021</span>
+    </footer>
+
+
+</body>
+</html>

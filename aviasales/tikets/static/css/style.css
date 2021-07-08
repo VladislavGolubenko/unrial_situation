@@ -1,0 +1,455 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    min-height: 75vh;
+    margin:0;
+    padding: 40px 5% 40px 5%;
+    background-color: #e6e6e6;
+ 
+}
+
+.scroll_page{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:100%;
+
+}
+
+/* Формирование основных частей страницы вывода билетов*/
+
+.filter_part{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.filter{
+    width: 100%;
+    height: auto;
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ticket_part{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket{
+    width: 90%;
+    height: auto;
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+}
+
+.cost{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid gray ;
+    padding: 0;
+}
+
+.arive{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    background-color: red;
+}
+
+.company_image_block{
+    width: 100%;
+    height: 100px;
+    display:flex;
+    flex-direction: flex-start
+}
+
+.company_logo{
+    height: 60px;
+    margin-left: 20px;
+}
+
+
+/* Стили для фильтра */
+
+.filter_part{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu_filter_dropdown{
+    width: 100%;
+    border: 0.5px solid rgb(222, 223, 224);
+    border-radius: 2px;
+    font-size: 13px;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left:50px;
+
+}
+
+.dropdown_select{
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    border: 0.5px solid rgb(222, 223, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.dropdown_select_static{
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    border: 0.5px solid rgb(222, 223, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.dropdown_select li{
+    list-style: none;
+}
+
+.dropdown_select2{
+    width: 100%;
+    background-color: rgb(248, 248, 248);
+    border: 0.5px solid rgb(222, 223, 224);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.dropdown_select2 li{
+    list-style: none;
+}
+
+.sort-down{
+    width:10px;
+    display: block;
+    margin-top: 3%;
+}
+.sort-up{
+    width:10px;
+    display: none;
+    margin-top: 3%;
+}
+.sort-down2{
+    width:10px;
+    display: block;
+    margin-top: 3%;
+}
+.sort-up2{
+    width:10px;
+    display: none;
+    margin-top: 3%;
+}
+
+.dropdown_label{
+    padding-left: 0;
+}
+
+.fa-sort-down{
+    display: block;
+}
+
+.fa-sort-up{
+    display: none;
+    margin-top: 3%;
+}
+
+.range{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.range input{
+    border: 0.5px solid rgb(222, 223, 224);
+    border-radius: 5px;
+    width:40%;
+}
+
+/* Шапка сайта */
+
+header{
+    background-color: rgb(72, 72, 255);
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+
+}
+
+.logo{
+    height:200px;
+    border-radius:5px;
+    margin-left: -30px;
+    margin-top: -15px;
+}
+
+header ul{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 15px;
+    justify-content: space-around;
+
+}
+
+header li{
+    list-style: none;
+}
+
+header a{
+    text-decoration: none;
+    color: rgb(182, 216, 243);
+}
+
+/* Футер */
+
+footer{
+    background-color: rgb(72, 72, 255);
+    height: 100px;
+    color: rgb(182, 216, 243);
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ТУРИСТИЧЕСКИЕ НАПРАВЛЕНИЯ РОССИИ */
+
+.map{
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.map_card{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+.map_remarkable{
+    width: 30%;
+    height: 20%;
+    border-radius: 5px;
+}
+
+.map_remarkable_inf{
+    padding: 10px;
+    width: 70%;
+}
+
+/* ФОРМА ПОИСКА БИЛЕТОВ */
+
+.text{
+    color: rgb(98, 121, 253);
+}
+
+.find_form{
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: rgb(214, 214, 214);
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.input_line{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.button_in_findform{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Страница вывода вариантов */
+
+.dropdown_select{
+    align-items: flex-start;
+    
+}
+
+.dropdown_select2{
+    align-items: flex-start;
+}
+
+.baggeg_line{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20%;
+}
+
+.plus_baggeg{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-right: 1px solid rgb(206, 206, 206);
+    height: 100px;
+}
+
+.plus_baggeg:hover{
+    background-color: rgb(231, 231, 236);
+    border-start-start-radius: 5px;
+    height: 110px;
+}
+
+.no_baggeg{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100px;
+}
+
+.no_baggeg:hover{
+    background-color: rgb(231, 231, 236);
+    border-end-radius: 5px;
+    height: 110px;
+}
+
+.company_image_block{
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+}
+
+.arrive{
+    width: 100%;
+}
+
+.arrive_dateplaces{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+.plane_line{
+    display: flex;
+    border-bottom: 1px solid rgb(206, 206, 206);
+    justify-content: space-between;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.about_flight{
+    width: 30%;
+}
+
+/* Страница информации о билете */
+
+.by_tiket_informstion{
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(218, 218, 218);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.box_header{
+    width: 100%;
+    background-color: rgb(53, 100, 201);
+    height: 75px;
+    border-radius: 5px;
+    font-size: 22px;
+    color:lightcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.information_form{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 50px;
+}
+
+.information_form_place{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.information_form_inputs{
+    border-right: 1px solid rgb(167, 167, 167);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: flex-end;
+    padding: 20px 50px;
+}
+
+.box_content_plane{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dop{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.dop span{
+    display: flex;
+    height: 10%;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    background-color: rgb(243, 242, 242);
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 2px;
+}

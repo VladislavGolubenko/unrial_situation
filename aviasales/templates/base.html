@@ -1,0 +1,149 @@
+{% load static %}
+
+{% include "inc/_inc.html" %}
+
+    {% include "inc/_nav.html" %}
+
+     <main>
+        {% include "inc/_findTiket.html" %}
+        <div class="scroll_page">
+            {% block all_tikets %}
+            <div class="filter_part">
+
+                {% block tiket_filter %}
+                <form action="" method="get">
+                    {% comment %}
+                    {{ filter.form.as_p }}
+                    {% endcomment %}
+
+                    <div class="dropdown_part">
+                        <button class="menu_filter_dropdown" type="button" value='first' onclick="press_dropdown(this)">
+                            <label for="{{filter.plane_id__model_plane.id_for_label}}">Модель самолёта</label>
+                            <img class="sort-down" src="{% static 'img/down.png'%}">
+                            <img class="sort-up" src="{% static 'img/up.png'%}">
+                        </button>
+                        <div class="dropdown_select">
+                            {{filter.form.plane_id__model_plane}}
+                        </div>
+                    </div>
+
+                    <div class="dropdown_part">
+                        <button class="menu_filter_dropdown" type="button" value='first' onclick="press_dropdown2(this)">
+                            <label for="{{filter.plane_id__carrier_id__name.id_for_label}}">Авиакомпания</label>
+                            <img class="sort-down2" src="{% static 'img/down.png'%}">
+                            <img class="sort-up2" src="{% static 'img/up.png'%}">
+                        </button>
+                        <div class="dropdown_select2">
+                            {{filter.form.plane_id__carrier_id__name}}
+                        </div>
+                    </div>
+
+                    <div class="dropdown_part">
+                        <div class="menu_filter_dropdown" type="button" value='first'>
+                            <label for="{{form.econom_price.id_for_label}}">Цена econom</label>
+                        </div>
+
+                        <div class="dropdown_select_static range">
+                            {{filter.form.econom_price}}
+                        </div>
+                        <div class="invalid-feedback">
+                            {{filter.form.econom_price.errors}}
+                        </div>
+                    </div>
+
+                    <button style="width:100%;" type="submit" class="btn btn-primary btn-block">Отсортировать Авиабилеты</button>
+                </form>
+                {% endblock %}
+            </div>
+
+
+            <div class="ticket_part">
+
+                {% for obj in filter.qs %}
+                <div class="ticket">
+                    <div class="cost">
+                        <div class="baggeg_line">
+                            <div class="plus_baggeg">
+                                <i class="fas fa-suitcase-rolling"></i><br>
+                                <span>{{ obj.trunk_sale}} &#8381;</span>
+                            </div>
+                            <div class="no_baggeg">
+                                <i class="fas fa-times-circle"></i>
+                                <span>нет багажа</span>
+                            </div>
+                        </div>
+                        {% comment %}
+                        {{obj.pk}}
+                        {% endcomment %}
+
+                        <a class="btn btn-info" style="color: aliceblue;" href="{% url 'buy_tiket' obj.pk %}">Купить от: {{ obj.econom_price }} &#8381;</a>
+
+                    </div>
+
+                    <div class="arrive">
+                        <div class="company_image_block">
+                            <img class="company_logo" src="{{ MEDIA_URL }}{{obj.plane_id.carrier_id.logo.url}}" alt="">
+                        </div>
+                        <div class="arrive_dateplaces">
+                            <div class="about_flight">
+                                <p><strong>{{ obj.departure_airport.city}}</strong>({{ obj.departure_airport}})</p>
+                                <p>{{ obj.departure_time }}</p>
+                            </div>
+
+                            <div>
+                                <div class="plane_line">
+                                    <i class="fas fa-plane-departure"></i>
+                                    <i class="fas fa-plane-arrival"></i>
+                                </div>
+                                <p>{{ obj.plane_id }}</p>
+                                {% if obj.transfer_point  %}
+                                 <p>Пересадка в:{{ obj.transfer_point }}</p>
+                                {% endif %}
+                            </div>
+
+                            <div class="about_flight">
+                                <p><strong>{{ obj.arrival_point_airport.city}}</strong>({{ obj.arrival_point_airport }})</p>
+                                <p>{{ obj.arrival_time }}</p>
+
+                            </div>
+                        </div>
+                        {% if flights_back %}
+                            {% for flight_back in flights_back %}
+                            <div class="arrive_dateplaces">
+                                <div class="about_flight">
+                                    <p><strong>{{ flight_back.departure_airport.city}}</strong>({{ flight_back.departure_airport}})</p>
+                                    <p>{{ flight_back.departure_time }}</p>
+                                </div>
+
+                                <div>
+                                    <div class="plane_line">
+
+                                    </div>
+                                    <p>{{ flight_back.plane_id }}</p>
+                                    {% if flight_back.transfer_point  %}
+                                     <p>Пересадка в:{{ flight_back.transfer_point }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="about_flight">
+                                    <p><strong>{{ flight_back.arrival_point_airport.city}}</strong>({{ flight_back.arrival_point_airport }})</p>
+                                    <p>{{ flight_back.arrival_time }}</p>
+
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% empty %}
+                    <p>по такому запросу рейсов не нашлось</p>
+                {% endfor %}
+
+            </div>
+            {% endblock %}
+        </div>
+
+    </main>
+
+{% include "inc/_footer.html" %}

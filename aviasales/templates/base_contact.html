@@ -1,0 +1,56 @@
+{% load static %}
+
+{% include "inc/_inc.html" %}
+
+    {% include "inc/_nav.html" %}
+
+    <main>
+          <div>
+              <div class="dop">
+                  <span>{{ place_class }}</span>
+                  {% if window_place %}
+                  <span>Место у окна</span>
+                  {% endif %}
+
+                  {% if baggage %}
+                  <span>Багаж включен</span>
+                  {% endif %}
+              </div>
+              <form method="post" action="">
+              {% csrf_token %}
+                  {{ form.none_field.errors }}
+
+                  {{form.surename}}
+
+                  <div class="invalid-feedback">
+                      {{form.surename.errors}}
+                  </div>
+
+                  {{form.name}}
+
+                  <div class="invalid-feedback">
+                      {{form.name.errors}}
+                  </div>
+
+                   {{form.fathername}}
+
+                  <div class="invalid-feedback">
+                      {{form.fathername.errors}}
+                  </div>
+
+                  {{form.phone}}
+
+                  <div class="invalid-feedback">
+                      {{form.phone.errors}}
+                  </div>
+
+                  {{form.pasport}}
+
+                  <div class="invalid-feedback">
+                      {{form.pasport.errors}}
+                  </div>
+                  <button type="submit" class="btn btn-primary" >Перейти к оплате</button>
+              </form>
+          </div>
+    </main>
+{% include "inc/_footer.html" %}
